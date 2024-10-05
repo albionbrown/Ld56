@@ -4,7 +4,9 @@ var target : Player
 var in_gas = false
 var is_dead = false
 @export var health = 100
+@export var does_damage = 10
 var animated_sprite : AnimatedSprite2D
+var noticed_player : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,8 +21,11 @@ func _process(delta):
 		animated_sprite.play()
 	
 	target = get_tree().get_first_node_in_group("player")
-	global_position = global_position.lerp(target.global_position, 0.01)
-	move_and_slide()
+	noticed_player = true
+	if (noticed_player):
+		look_at(target.global_position)
+		global_position = global_position.lerp(target.global_position, 0.01)
+		move_and_slide()
 
 	if (in_gas and in_gas.emitting):
 		health = health - 1
@@ -29,7 +34,6 @@ func _process(delta):
 		is_dead = true
 		queue_free()
 		
-	
 
 func _on_area_2d_area_entered(area:Area2D):
 	if (area.get_parent().is_in_group('gas')):

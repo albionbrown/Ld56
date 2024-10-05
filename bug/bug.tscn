@@ -11,7 +11,7 @@ script = ExtResource("1_jgw06")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bug"]]
 shape = SubResource("RectangleShape2D_u3tuk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["bug"]]
 
 [node name="Area2D" type="Area2D" parent="."]
 

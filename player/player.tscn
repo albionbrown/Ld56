@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6he0l30qq3hv"]
+[gd_scene load_steps=5 format=3 uid="uid://c6he0l30qq3hv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d7t0q"]
 [ext_resource type="Texture2D" uid="uid://bhipf5ky18c0b" path="res://player/Player.png" id="2_yjsin"]
 [ext_resource type="PackedScene" uid="uid://cdfhxus8v0jnj" path="res://player/gas.tscn" id="3_ahtii"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_12ryu"]
-size = Vector2(76.5387, 49.0525)
 
 [sub_resource type="Curve" id="Curve_2cgxq"]
 min_value = -1.0
@@ -16,8 +13,8 @@ point_count = 2
 rotation = -0.0211463
 script = ExtResource("1_d7t0q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_12ryu")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(22.122, -5.53347, 13.3354, -15.7215, -3.55507, -21.0799, -11.5956, -19.2495, -15.4889, -24.333, -20.4878, -24.4387, -38.8433, -7.82308, -37.9281, -3.80283, -34.9922, -0.740065, -33.0138, 0.302001, -34.0981, 4.27996, -33.2252, 10.2998, -29.3107, 14.3834, -22.4603, 21.5299, -17.5037, 23.6352, -11.4839, 22.7623, -7.40018, 18.8477, -1.25351, 11.9762, 1.8304, 8.0405, 37.8435, 7.80193, 38.0761, -3.19561, 23.0794, -3.51278)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.90735e-06, 1.90735e-06)
@@ -32,3 +29,11 @@ initial_velocity_min = 10.0
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_2cgxq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(38.0972, -4.19538, 24.0792, -3.49163, 13.3354, -15.7215, -2.53415, -22.0585, -10.5746, -20.2281, -14.4892, -24.3118, -20.4878, -24.4387, -38.8221, -8.82286, -38.9278, -3.82397, -35.992, -0.76121, -31.9717, -1.67641, -34.1404, 6.27951, -31.268, 12.3416, -25.4173, 19.4669, -19.5032, 23.5929, -11.4839, 22.7623, -7.37904, 17.848, -0.232592, 10.9975, 2.85132, 7.06187, 37.8435, 7.80193)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

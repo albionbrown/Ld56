@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmk1gijdwoq0n"]
+
+[ext_resource type="PackedScene" uid="uid://c6he0l30qq3hv" path="res://player/player.tscn" id="1_e3b11"]
+[ext_resource type="PackedScene" uid="uid://dj0ggronhtnn5" path="res://bug/bugA.tscn" id="2_andir"]
+[ext_resource type="PackedScene" uid="uid://d1if245jegedv" path="res://bug/bugB.tscn" id="3_ubbwo"]
+[ext_resource type="PackedScene" uid="uid://6vhjxjdl14d3" path="res://misc/fumigation_factory/fumigation_factory.tscn" id="4_pt182"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Characterbody2D" parent="." instance=ExtResource("1_e3b11")]
+position = Vector2(114, 97)
+
+[node name="Camera2D" type="Camera2D" parent="Characterbody2D"]
+position = Vector2(-14.018, 0.703743)
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_andir")]
+position = Vector2(726, 323)
+
+[node name="AnimatedSprite2D2" parent="." instance=ExtResource("3_ubbwo")]
+position = Vector2(734, 163)
+
+[node name="fumigation_factory" parent="." instance=ExtResource("4_pt182")]
+position = Vector2(441, 249)
+scale = Vector2(0.5, 0.5)
