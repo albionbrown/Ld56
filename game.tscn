@@ -8,5 +8,9 @@
 [node name="Characterbody2D" parent="." instance=ExtResource("1_e3b11")]
 position = Vector2(114, 97)
 
+[node name="Camera2D" type="Camera2D" parent="Characterbody2D"]
+position = Vector2(-14.018, 0.703743)
+rotation = 0.0211463
+
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_bcmgd")]
 position = Vector2(667, 266)
