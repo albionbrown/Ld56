@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6he0l30qq3hv"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_d7t0q"]
+[ext_resource type="Texture2D" uid="uid://bhipf5ky18c0b" path="res://player/Player.png" id="2_yjsin"]
+[ext_resource type="PackedScene" uid="uid://cdfhxus8v0jnj" path="res://player/gas.tscn" id="3_ahtii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12ryu"]
+size = Vector2(76.5387, 49.0525)
+
+[sub_resource type="Curve" id="Curve_2cgxq"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Characterbody2D" type="CharacterBody2D" groups=["player"]]
+rotation = -0.0211463
+script = ExtResource("1_d7t0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_12ryu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_yjsin")
+
+[node name="gas" parent="." instance=ExtResource("3_ahtii")]
+position = Vector2(34.9499, 2.73962)
+emitting = false
+initial_velocity_min = 10.0
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_2cgxq")

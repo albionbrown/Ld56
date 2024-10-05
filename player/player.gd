@@ -1,17 +1,24 @@
 class_name Player extends CharacterBody2D
 
+const Backpack_file = preload("res://player/backpack.gd")
+
 @export var health = 100
 @export var speed = 400
 var gas: CPUParticles2D
+var backpack : Backpack
 
 func _ready():
-	gas = get_node('gas')
+	self.gas = get_node('gas')
+	self.backpack = Backpack.new(gas)
 
 func _process(delta):
+
 	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
-		self.gas.emitting = true
+		self.backpack.start()
 	else:
-		self.gas.emitting = false
+		self.backpack.stop()
+		
+	backpack._process(delta)
 
 func _physics_process(delta):
 	get_input()
