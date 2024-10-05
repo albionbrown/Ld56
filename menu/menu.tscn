@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bctwl8ds17ugw"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_6pcgy"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_6pcgy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 516.0
+offset_top = 268.0
+offset_right = 774.0
+offset_bottom = 322.0
+text = "Press space to start"

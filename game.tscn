@@ -1,14 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmk1gijdwoq0n"]
 
-[ext_resource type="PackedScene" uid="uid://c6he0l30qq3hv" path="res://player.tscn" id="1_shjjq"]
-[ext_resource type="PackedScene" uid="uid://c2fqbid5qnsc3" path="res://bug.tscn" id="2_gqmvs"]
+[ext_resource type="PackedScene" uid="uid://c6he0l30qq3hv" path="res://player/player.tscn" id="1_e3b11"]
+[ext_resource type="PackedScene" uid="uid://c2fqbid5qnsc3" path="res://bug/bug.tscn" id="2_bcmgd"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Characterbody2D" parent="." instance=ExtResource("1_shjjq")]
-position = Vector2(234, 159)
+[node name="Characterbody2D" parent="." instance=ExtResource("1_e3b11")]
+position = Vector2(114, 97)
 
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_gqmvs")]
-position = Vector2(252, 264)
-rotation = 0.00694433
-scale = Vector2(1, 1)
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_bcmgd")]
+position = Vector2(667, 266)
