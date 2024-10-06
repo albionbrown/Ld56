@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://kw3h0nh1hpdm"]
+
+[ext_resource type="Script" path="res://misc/chemical/chemical.gd" id="1_byefs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t4fi"]
+size = Vector2(65, 66)
+
+[node name="chemical" type="Node2D" groups=["inventory_item"]]
+script = ExtResource("1_byefs")
+title = "Chemicals"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_2t4fi")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = -18.0
+offset_top = -30.0
+offset_right = 63.0
+offset_bottom = -6.0
+text = "Pick up (E)"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_player_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_player_exited"]

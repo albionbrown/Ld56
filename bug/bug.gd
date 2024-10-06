@@ -11,6 +11,7 @@ var noticed_player : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animated_sprite = get_node("AnimatedSprite2D")
+	target = get_tree().get_first_node_in_group("player")
 	pass # Replace with function body.
 
 
@@ -20,8 +21,6 @@ func _process(delta):
 	if (!animated_sprite.is_playing()):
 		animated_sprite.play()
 	
-	target = get_tree().get_first_node_in_group("player")
-	noticed_player = true
 	if (noticed_player):
 		look_at(target.global_position)
 		global_position = global_position.lerp(target.global_position, 0.01)
@@ -43,3 +42,13 @@ func _on_area_2d_area_entered(area:Area2D):
 func _on_area_2d_area_exited(area):
 	if (area.get_parent().is_in_group('gas')):
 		in_gas = false;
+
+
+func _on_detection_area_player_entered(body):
+	if (body.is_in_group('player')):
+		noticed_player = true
+
+
+func _on_detection_area_player_exited(body):
+	if (body.is_in_group('player')):
+		noticed_player = false

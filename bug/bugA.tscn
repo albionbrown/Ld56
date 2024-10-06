@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj0ggronhtnn5"]
+[gd_scene load_steps=8 format=3 uid="uid://dj0ggronhtnn5"]
 
 [ext_resource type="Script" path="res://bug/bug.gd" id="1_6h1m2"]
 [ext_resource type="Texture2D" uid="uid://ds5xam2yjo0du" path="res://bug/bugA.png" id="2_e8dlu"]
@@ -28,6 +28,9 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1skv7"]
+radius = 988.202
+
 [node name="AnimatedSprite2D" type="CharacterBody2D" groups=["bug"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_6h1m2")
@@ -44,5 +47,12 @@ animation = &"flapping"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["bug"]]
 shape = SubResource("RectangleShape2D_u3tuk")
 
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_1skv7")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_player_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_player_exited"]

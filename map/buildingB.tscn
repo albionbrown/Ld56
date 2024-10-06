@@ -143,10 +143,10 @@ polygon = PackedVector2Array(-768, -512, -256, -512, -256, -448, -704, -448, -70
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(-322, -451, -322, 254, -258, 254, -256, -449)
+polygon = PackedVector2Array(-320, -448, -320, 256, -256, 256, -256, -448)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(-2, -258, -1, -1, 62, -1, 64, -193, 704, -192, 704, -257)
+polygon = PackedVector2Array(0, -256, 0, 0, 64, 0, 64, -192, 704, -192, 704, -257)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(1, 253, 62, 253, 62, 446, 1, 446)
+polygon = PackedVector2Array(0, 256, 64, 256, 64, 448, 0, 448)
