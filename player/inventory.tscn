@@ -2,27 +2,30 @@
 
 [ext_resource type="Script" path="res://player/inventory.gd" id="1_jqtto"]
 
-[node name="inventory" type="Node2D"]
+[node name="inventory" type="CanvasLayer"]
 script = ExtResource("1_jqtto")
 
 [node name="InventoryLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 8.0
+offset_top = 528.0
+offset_right = 83.0
+offset_bottom = 551.0
 text = "Inventory"
 
 [node name="Label1" type="Label" parent="."]
-offset_left = -1.0
-offset_top = 39.0
-offset_right = 132.0
-offset_bottom = 62.0
+offset_left = 7.0
+offset_top = 567.0
+offset_right = 140.0
+offset_bottom = 590.0
 
 [node name="Label2" type="Label" parent="."]
-offset_top = 62.0
-offset_right = 117.0
-offset_bottom = 85.0
+offset_left = 8.0
+offset_top = 590.0
+offset_right = 125.0
+offset_bottom = 613.0
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 110.0
-offset_bottom = 112.0
+offset_left = 9.0
+offset_top = 617.0
+offset_right = 118.0
+offset_bottom = 640.0

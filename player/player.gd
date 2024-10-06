@@ -29,12 +29,13 @@ func _process(delta):
 		self.backpack.start()
 	else:
 		self.backpack.stop()
-		
-	if (Input.is_physical_key_pressed(KEY_E) and Usable.is_usable(current_usable_target)):
-		current_usable_target.use()
-		
-	if (Input.is_physical_key_pressed(KEY_E) and !inventory.is_full()):
-		pickup(current_usable_target)
+	
+	# Ensure the key has been lifted before being used again
+	if (Input.is_action_just_pressed('use') and current_usable_target != null):
+		if (Usable.is_usable(current_usable_target)):
+			current_usable_target.use(inventory)
+		elif (!inventory.is_full()):
+			pickup(current_usable_target)
 		
 	backpack._process(delta)
 	
@@ -50,14 +51,16 @@ func get_input():
 	velocity = input_direction * speed
 
 func pickup(item):
-	item.pickup()
-	inventory.add_item(item)
+	if (item.is_in_group('inventory_item')):
+		item.pickup()
+		inventory.add_item(item)
+		unset_usable()
 	
 func set_usable(l_usable):
 	current_usable_target = l_usable
 	
 func unset_usable():
-	current_usable_target = false
+	current_usable_target = null
 
 func _on_area_2d_area_entered(area):
 	if (area.get_parent().is_in_group('bug')):

@@ -403,7 +403,8 @@ rotation = -1.5708
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-9987, -5121, -9982, 6399, 9729, 6400, 9743, -8465, -10001, -8403, -9985, -5150, -9985, -5134, -10002, -5132, -10003, -5142, -10109, -8653, 9794, -8524, 9837, 6426, 9743.73, 6425.95, -9996, 6415, -9998, -5013, -10002, -5123)
+position = Vector2(18, 53)
+polygon = PackedVector2Array(-9987, -5121, -9982, 6399, 9729, 6400, 9743, -8465, -10001, -8403, -9985, -5150, -9985, -5134, -10002, -5132, -10003, -5142, -10010, -8412, 9794, -8524, 9748, 6353, 9743.73, 6425.95, -9996, 6415, -9998, -5013, -10002, -5123)
 
 [node name="buildingC" parent="." instance=ExtResource("7_3po6o")]
 position = Vector2(-7680, 2560)

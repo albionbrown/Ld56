@@ -13,7 +13,7 @@ func _process(delta):
 	pass
 
 func _on_area_2d_player_entered(body):
-	if (body.is_in_group('pdlayer')):
+	if (body.is_in_group('player')):
 		body.set_usable(self)
 		label.show()
 
@@ -24,3 +24,10 @@ func _on_area_2d_player_exited(body):
 
 func pickup():
 	hide()
+	label.hide()
+	
+func use():
+	pass
+
+func move(node):
+	node.add_canister(self)

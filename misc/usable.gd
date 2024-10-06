@@ -1,5 +1,7 @@
 class_name Usable
 
+static var keys_down
+
 static func is_usable(usable):
 	return (is_instance_of(usable, Node) and 
 		usable.is_in_group('usable') and

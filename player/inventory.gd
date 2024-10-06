@@ -1,4 +1,4 @@
-class_name Inventory extends Node2D
+class_name Inventory extends CanvasLayer
 
 @export var player : Node2D
 var inventory : Array = []
@@ -25,11 +25,23 @@ func add_item(item):
 		item_count += 1
 	
 func remove_item(item):
-	#find item
+	var index = inventory.find(item)
+	inventory.remove_at(index)
 	item_count -= 1
 
 func has_item(item):
 	return item in inventory
+	#
+func get_items():
+	return inventory
+	
+func get_items_in_group(group : String):
+	var items : Array = []
+	for item in get_items():
+		if (item.is_in_group(group)):
+			items.append(item)
+			
+	return items
 	
 func is_full():
 	return item_count >= max_items

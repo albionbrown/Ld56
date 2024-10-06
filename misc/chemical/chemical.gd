@@ -24,4 +24,9 @@ func _on_area_2d_player_exited(body):
 
 func pickup():
 	hide()
+
+func use():
+	pass
 	
+func move(node):
+	node.add_chemicals(self)
