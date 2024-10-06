@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1ka25f35c64"]
+
+[ext_resource type="Texture2D" uid="uid://wr28nxih4lm3" path="res://map/walls.png" id="1_it5s5"]
+[ext_resource type="Texture2D" uid="uid://bqm2pnf5ja8b2" path="res://map/map.png" id="2_c40cl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5vyl"]
+texture = ExtResource("1_it5s5")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc86q"]
+texture = ExtResource("2_c40cl")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pjhit"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_k5vyl")
+sources/1 = SubResource("TileSetAtlasSource_dc86q")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3k3ei"]
+texture = ExtResource("1_it5s5")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7tbcg"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_3k3ei")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idkdn"]
+texture = ExtResource("1_it5s5")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g7wkv"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_idkdn")
+
+[node name="buildingB" type="TileMap"]
+tile_set = SubResource("TileSet_pjhit")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 327681, 7, -65536, 327681, 7, 0, 327681, 7, 65535, 327681, 7, -3, 327681, 7, -2, 327681, 7, 65534, 327681, 7, 65533, 327681, 7, -65539, 327681, 7, -65538, 327681, 7, -65537, 327681, 7, -131072, 327681, 7, 131069, 327681, 7, 131070, 327681, 7, 131071, 327681, 7, 65536, 327681, 7, 65537, 327681, 7, 65538, 327681, 7, 2, 327681, 7, -65534, 327681, 7, -131070, 327681, 7, -131071, 327681, 7, -65535, 327681, 7, 1, 327681, 7)
+
+[node name="WallsLayer1" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_7tbcg")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65539, 0, 0, -65538, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, 131069, 196608, 0, 131070, 196608, 0, 131071, 196608, 0, 65536, 196608, 0, 65537, 196608, 0, 65538, 196608, 0, -65534, 0, 0, -65535, 0, 0, -65536, 0, 0)
+
+[node name="WallsLayer2" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_g7wkv")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131070, 65536, 0, -65534, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 131069, 131072, 0, 65533, 131072, 0, -3, 131072, 0, -65539, 131072, 0, -65536, 131072, 0, 65536, 131072, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-768, -512, -256, -512, -256, -448, -704, -448, -704, 448, 704, 448, 704, -448, 0, -448, 0, -512, 768, -512, 768, 512, -768, 512)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-322, -451, -322, 254, -258, 254, -256, -449)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-2, -258, -1, -1, 62, -1, 64, -193, 704, -192, 704, -257)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(1, 253, 62, 253, 62, 446, 1, 446)

@@ -45,13 +45,16 @@ func start():
 
 func use():
 	start()
+	use_label.hide()
 	
 func can_be_used():
 	return !in_progress
 
 func _on_area_2d_body_entered(body):
 	if (body.is_in_group('player')):
-		use_label.show()
+		if (!in_progress):
+			use_label.show()
+			
 		body.set_usable(self)
 
 
