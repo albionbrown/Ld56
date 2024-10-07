@@ -6,9 +6,9 @@
 script = ExtResource("1_su5la")
 
 [node name="CountLabel" type="RichTextLabel" parent="."]
-offset_left = 999.0
-offset_top = 10.0
-offset_right = 1040.0
-offset_bottom = 33.0
+offset_left = 8.00006
+offset_top = 54.0
+offset_right = 49.0001
+offset_bottom = 77.0
 scale = Vector2(3.23684, 3.23684)
 text = "0"

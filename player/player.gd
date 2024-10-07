@@ -34,8 +34,8 @@ func _process(delta):
 
 	if (health == 0):
 		is_dead = true
-		#emit_signal
-		queue_free()
+		var scene_tree = get_tree()
+		scene_tree.change_scene_to_file("res://menu/menu.tscn"  )
 	
 	if (current_state == State.DEFAULT):
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
@@ -50,10 +50,10 @@ func _process(delta):
 			elif (!inventory.is_full()):
 				pickup(current_usable_target)
 		
-		if (Input.is_action_just_pressed("reload")):
+		if (Input .is_action_just_pressed("reload")):
 			current_state = State.RELOADING
 			reload_timer.start()
-	
+	 
 	backpack._process(delta)
 	
 
@@ -71,8 +71,8 @@ func pickup(item):
 	if (item.is_in_group('inventory_item')):
 		inventory.add_item(item)
 		item.pickup()
-		unset_usable()
-	
+		unset_usable() 
+
 func set_usable(l_usable):
 	current_usable_target = l_usable
 	
@@ -94,6 +94,7 @@ func reload_canister():
 		var item = full_canisters.pop_front()
 		inventory.remove_item(item)
 		item.queue_free()
+		inventory.refresh_labels()
 		
 func is_reloading():
 	return current_state == State.RELOADING

@@ -17942,3 +17942,8 @@ scale = Vector2(1.3151, 1.3151)
 [node name="Table4" parent="." instance=ExtResource("7_redjl")]
 position = Vector2(63, 574)
 rotation = 1.5708
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-256, -768, -256, -703, -703, -703, -703, -65, -256, -65, -256, 0, -703, 0, -704, 704, 704, 704, 704, -704, 65, -703, 65, -256, 0, -256, -1, -769, 768, -768, 768, 768, -768, 768, -768, -768)

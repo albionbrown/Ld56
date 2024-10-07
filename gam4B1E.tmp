@@ -1,0 +1,281 @@
+[gd_scene load_steps=18 format=3 uid="uid://dmk1gijdwoq0n"]
+
+[ext_resource type="PackedScene" uid="uid://bh2rhrpydcwl7" path="res://map/map.tscn" id="1_2gnrl"]
+[ext_resource type="PackedScene" uid="uid://c6he0l30qq3hv" path="res://player/player.tscn" id="1_e3b11"]
+[ext_resource type="Script" path="res://game.gd" id="1_guerl"]
+[ext_resource type="PackedScene" uid="uid://dj0ggronhtnn5" path="res://bug/bugA.tscn" id="2_andir"]
+[ext_resource type="PackedScene" uid="uid://d1if245jegedv" path="res://bug/bugB.tscn" id="3_ubbwo"]
+[ext_resource type="PackedScene" uid="uid://6vhjxjdl14d3" path="res://misc/fumigation_factory/fumigation_factory.tscn" id="4_pt182"]
+[ext_resource type="PackedScene" uid="uid://dycmuall4f0g2" path="res://misc/canister/empty_canister.tscn" id="7_okop1"]
+[ext_resource type="PackedScene" uid="uid://kw3h0nh1hpdm" path="res://misc/chemical/chemical.tscn" id="8_85toi"]
+[ext_resource type="PackedScene" uid="uid://rxls3gfdj73l" path="res://player/inventory.tscn" id="8_rq0jf"]
+[ext_resource type="PackedScene" uid="uid://dr16m6lrlfbrl" path="res://player/health_bar.tscn" id="12_m1cji"]
+[ext_resource type="PackedScene" uid="uid://m3n5btagwuvq" path="res://misc/canister/full_canister.tscn" id="14_tyb1c"]
+[ext_resource type="PackedScene" uid="uid://bnr7wtvtmusht" path="res://misc/emitter.tscn" id="15_vo1bs"]
+[ext_resource type="PackedScene" uid="uid://bhij4wahuhuq0" path="res://player/backpack_indicator.tscn" id="17_j8s7e"]
+[ext_resource type="PackedScene" uid="uid://drog23s5otn1i" path="res://player/reload_counter.tscn" id="18_hi0kg"]
+[ext_resource type="PackedScene" uid="uid://c3eux3fjygnnw" path="res://map/objects/red_car.tscn" id="19_ua7m7"]
+[ext_resource type="PackedScene" uid="uid://3apf8riowpsj" path="res://map/objects/gray_car.tscn" id="20_mjaag"]
+[ext_resource type="PackedScene" uid="uid://bqj10yxbgek8l" path="res://player/bug_kill_counter.tscn" id="21_xdk6c"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_guerl")
+
+[node name="map2" parent="." instance=ExtResource("1_2gnrl")]
+position = Vector2(0, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_andir")]
+position = Vector2(726, 323)
+
+[node name="AnimatedSprite2D2" parent="." instance=ExtResource("3_ubbwo")]
+position = Vector2(734, 163)
+
+[node name="night_mask" type="ColorRect" parent="."]
+offset_left = -6890.0
+offset_top = -5356.0
+offset_right = 7013.0
+offset_bottom = 4899.0
+color = Color(0.145098, 0.145098, 0.145098, 0.415686)
+
+[node name="fumigation_factory" parent="." instance=ExtResource("4_pt182")]
+position = Vector2(-1337, -1081)
+scale = Vector2(0.75, 0.75)
+
+[node name="Player" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("1_e3b11")]
+position = Vector2(-1088, -951)
+rotation = 1.55633
+scale = Vector2(1.42449, 1.42449)
+inventory = NodePath("../inventory")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-14.018, 0.703743)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.3
+drag_vertical_offset = 0.3
+
+[node name="canister" parent="." instance=ExtResource("7_okop1")]
+position = Vector2(-918, -860)
+
+[node name="chemical" parent="." instance=ExtResource("8_85toi")]
+position = Vector2(-1444, -849)
+title = "Chemicals"
+
+[node name="inventory" parent="." instance=ExtResource("8_rq0jf")]
+
+[node name="Health" parent="." instance=ExtResource("12_m1cji")]
+layer = 0
+
+[node name="HealthBar" parent="Health" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="canister2" parent="." instance=ExtResource("14_tyb1c")]
+position = Vector2(-3551, 1705)
+
+[node name="canister3" parent="." instance=ExtResource("14_tyb1c")]
+position = Vector2(-895, -1121)
+
+[node name="RedCar" parent="." instance=ExtResource("19_ua7m7")]
+position = Vector2(-803, -167)
+scale = Vector2(0.676217, 0.676217)
+
+[node name="GrayCar" parent="." instance=ExtResource("20_mjaag")]
+position = Vector2(-1333, -156)
+scale = Vector2(0.720105, 0.720105)
+
+[node name="BackpackIndicator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_j8s7e")]
+player = NodePath("../Player")
+
+[node name="ReloadCounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("18_hi0kg")]
+player = NodePath("../Player")
+
+[node name="BugKillCounter" parent="." instance=ExtResource("21_xdk6c")]
+
+[node name="Inventory Emitters" type="Node2D" parent="."]
+
+[node name="Emitter" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1950, -3131)
+choice = 3
+
+[node name="Emitter2" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3682, -3259)
+choice = 2
+
+[node name="Emitter3" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-4180, -2995)
+choice = 4
+
+[node name="Emitter4" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3112, -878)
+choice = 2
+
+[node name="Emitter5" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-977, -2325)
+choice = 2
+
+[node name="Emitter6" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(3360, 2436)
+choice = 4
+
+[node name="Emitter7" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(3153, 2629)
+choice = 2
+
+[node name="Emitter8" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1077, 2884)
+choice = 4
+
+[node name="Emitter9" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(974, 1976)
+choice = 2
+
+[node name="Emitter10" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1498, 839)
+choice = 2
+
+[node name="Emitter11" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-963, 1068)
+choice = 4
+
+[node name="Bug Emitters" type="Node2D" parent="."]
+
+[node name="Emitter" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-356, -673)
+
+[node name="Emitter2" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(170, -1290)
+choice = 1
+
+[node name="Emitter3" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-266, -1872)
+choice = 1
+
+[node name="Emitter4" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(204, -2681)
+
+[node name="Emitter5" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1160, -1618)
+
+[node name="Emitter6" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2161, -385)
+
+[node name="Emitter7" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1324, 1228)
+
+[node name="Emitter8" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1211, 1375)
+
+[node name="Emitter9" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3202, 747)
+
+[node name="Emitter10" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-2472, -905)
+
+[node name="Emitter11" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-2789, -1680)
+
+[node name="Emitter12" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-2053, -2913)
+
+[node name="Emitter13" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-4469, -2257)
+
+[node name="Emitter14" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1954, -2793)
+
+[node name="Emitter15" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1271, -3722)
+
+[node name="Emitter16" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2229, -1984)
+choice = 1
+
+[node name="Emitter17" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(983, -1313)
+choice = 1
+
+[node name="Emitter18" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1942, -3728)
+choice = 1
+
+[node name="Emitter19" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(695, 2325)
+choice = 1
+
+[node name="Emitter20" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2415, 2427)
+
+[node name="Emitter21" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2979, 473)
+
+[node name="Emitter22" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2961, 1223)
+choice = 1
+
+[node name="Emitter23" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1342, 2038)
+choice = 1
+
+[node name="Emitter24" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-6, 1504)
+choice = 1
+
+[node name="Emitter25" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1852, 132)
+choice = 1
+
+[node name="Emitter26" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-4411, 384)
+choice = 1
+
+[node name="Emitter27" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3590, -959)
+choice = 1
+
+[node name="Emitter28" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1139, -2709)
+choice = 1
+
+[connection signal="spawn" from="Inventory Emitters/Emitter" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter2" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter3" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter4" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter5" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter6" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter7" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter8" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter9" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter10" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter11" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter2" to="." method="_on_emitter_2_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter3" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter4" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter5" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter6" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter7" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter8" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter9" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter10" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter11" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter12" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter13" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter14" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter15" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter16" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter17" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter18" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter19" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter20" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter21" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter22" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter23" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter24" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter25" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter26" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter27" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter28" to="." method="_on_emit_spawn"]
+
+[editable path="Player"]
+[editable path="Health"]

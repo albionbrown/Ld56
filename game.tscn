@@ -43,9 +43,9 @@ position = Vector2(-1337, -1081)
 scale = Vector2(0.75, 0.75)
 
 [node name="Player" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("1_e3b11")]
-position = Vector2(-888, -1087)
+position = Vector2(-1088, -951)
 rotation = 1.55633
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.42449, 1.42449)
 inventory = NodePath("../inventory")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -56,36 +56,19 @@ drag_horizontal_offset = 0.3
 drag_vertical_offset = 0.3
 
 [node name="canister" parent="." instance=ExtResource("7_okop1")]
-position = Vector2(-1516, -644)
+position = Vector2(-918, -860)
 
 [node name="chemical" parent="." instance=ExtResource("8_85toi")]
-position = Vector2(-1313, -650)
+position = Vector2(-1444, -849)
 title = "Chemicals"
 
 [node name="inventory" parent="." instance=ExtResource("8_rq0jf")]
 
-[node name="Health" parent="." instance=ExtResource("12_m1cji")]
-layer = 0
-
-[node name="HealthBar" parent="Health" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../../Player")
-
 [node name="canister2" parent="." instance=ExtResource("14_tyb1c")]
 position = Vector2(-3551, 1705)
 
-[node name="Emitter" parent="." instance=ExtResource("15_vo1bs")]
-position = Vector2(1950, -3131)
-choice = 3
-delay = 600.0
-
-[node name="BackpackIndicator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_j8s7e")]
-player = NodePath("../Player")
-
 [node name="canister3" parent="." instance=ExtResource("14_tyb1c")]
-position = Vector2(-1258, -433)
-
-[node name="ReloadCounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("18_hi0kg")]
-player = NodePath("../Player")
+position = Vector2(-895, -1121)
 
 [node name="RedCar" parent="." instance=ExtResource("19_ua7m7")]
 position = Vector2(-803, -167)
@@ -95,9 +78,262 @@ scale = Vector2(0.676217, 0.676217)
 position = Vector2(-1333, -156)
 scale = Vector2(0.720105, 0.720105)
 
+[node name="Health" parent="." instance=ExtResource("12_m1cji")]
+layer = 0
+
+[node name="HealthBar" parent="Health" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="BackpackIndicator" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_j8s7e")]
+player = NodePath("../Player")
+
+[node name="ReloadCounter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("18_hi0kg")]
+player = NodePath("../Player")
+
 [node name="BugKillCounter" parent="." instance=ExtResource("21_xdk6c")]
 
-[connection signal="spawn" from="Emitter" to="." method="_on_emit_spawn"]
+[node name="Inventory Emitters" type="Node2D" parent="."]
+
+[node name="Emitter" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1950, -3131)
+choice = 3
+
+[node name="Emitter2" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3682, -3259)
+choice = 2
+
+[node name="Emitter3" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-4180, -2995)
+choice = 4
+
+[node name="Emitter4" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3112, -878)
+choice = 2
+delay_min = 30.0
+delay_max = 60.0
+
+[node name="Emitter5" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-977, -2325)
+choice = 2
+
+[node name="Emitter6" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(3360, 2436)
+choice = 4
+
+[node name="Emitter7" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(3153, 2629)
+choice = 2
+
+[node name="Emitter8" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1077, 2884)
+choice = 4
+
+[node name="Emitter9" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(974, 1976)
+choice = 2
+
+[node name="Emitter10" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1498, 839)
+choice = 2
+
+[node name="Emitter11" parent="Inventory Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-963, 1068)
+choice = 4
+
+[node name="Bug Emitters" type="Node2D" parent="."]
+
+[node name="Emitter" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-356, -673)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter2" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(170, -1290)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter3" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-266, -1872)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter4" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(204, -2681)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter5" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1160, -1618)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter6" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2161, -385)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter7" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1324, 1228)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter8" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1211, 1375)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter9" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3202, 747)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter10" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-2472, -905)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter11" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-2789, -1680)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter12" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-2053, -2913)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter13" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-4469, -2257)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter14" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1954, -2793)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter15" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1271, -3722)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter16" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2229, -1984)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter17" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(983, -1313)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter18" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(1942, -3728)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter19" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(695, 2325)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter20" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2415, 2427)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter21" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2979, 473)
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter22" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(2961, 1223)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter23" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1342, 2038)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter24" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-6, 1504)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter25" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1852, 132)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter26" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-4411, 384)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter27" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-3590, -959)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[node name="Emitter28" parent="Bug Emitters" instance=ExtResource("15_vo1bs")]
+position = Vector2(-1139, -2709)
+choice = 1
+delay_min = 3.0
+delay_max = 10.0
+
+[connection signal="spawn" from="Inventory Emitters/Emitter" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter2" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter3" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter4" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter5" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter6" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter7" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter8" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter9" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter10" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Inventory Emitters/Emitter11" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter2" to="." method="_on_emitter_2_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter3" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter4" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter5" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter6" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter7" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter8" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter9" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter10" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter11" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter12" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter13" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter14" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter15" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter16" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter17" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter18" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter19" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter20" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter21" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter22" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter23" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter24" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter25" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter26" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter27" to="." method="_on_emit_spawn"]
+[connection signal="spawn" from="Bug Emitters/Emitter28" to="." method="_on_emit_spawn"]
 
 [editable path="Player"]
 [editable path="Health"]

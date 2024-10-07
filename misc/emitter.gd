@@ -2,6 +2,8 @@ class_name Emitter extends Node2D
 
 signal spawn
 
+@export var clear_to_spawn = true
+
 static var options = [
 	{
 		'name': 'Bug A',
@@ -21,14 +23,17 @@ static var options = [
 	},
 	{
 		'name': 'Chemials',
-		'scene_path': 'res://misc/chemicals/chemicals.tscn'
+		'scene_path': 'res://misc/chemical/chemical.tscn'
 	}
 ]
 
 enum Choice {BUGA, BUGB, CANISTER, FULLCANISTER, CHEMICALS}
 
 @export var choice : Choice = Choice.BUGA
-@export var delay : float = 60
+var delay : float = 1
+@export var delay_min : float = 1
+@export var delay_max : float = 10
+
 var last_spawn_time = 0
 var scene
 var can_spawn : bool = true
@@ -42,5 +47,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	last_spawn_time += delta
 	if (can_spawn and last_spawn_time >= delay):
-		spawn.emit(scene)
-		last_spawn_time = 0
+		spawn.emit(scene, self)
+		last_spawn_time = 0.0
+		if (clear_to_spawn):
+			can_spawn = false
+		
+		delay = randf_range(delay_min, delay_max)
+		
+func clear():
+	can_spawn = true
+	delay = randf_range(delay_min, delay_max) 

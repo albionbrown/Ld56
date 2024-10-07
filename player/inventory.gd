@@ -12,9 +12,6 @@ func _ready():
 	
 func _process(delta):
 	var i = 1
-	for item in inventory:
-		
-		i += 1
 
 func add_item(item):
 	if (!is_full()):
@@ -53,12 +50,12 @@ func refresh_labels():
 		if (index < item_count):
 			var item = inventory[index]
 			if (item != null):
-				set_inventory_label(index, item.title)
+				set_inventory_label(index+1, item.title)
 		else:
-			set_inventory_label(index, '')
+			set_inventory_label(index+1, '')
 	
 	
 func set_inventory_label(index : int, label_string : String):
-	var label_name = 'CanvasLayer/Label' + str(index+1)
+	var label_name = 'CanvasLayer/Label' + str(index)
 	var label = get_node(label_name)
 	label.text = label_string
