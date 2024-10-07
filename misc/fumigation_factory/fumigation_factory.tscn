@@ -477,6 +477,8 @@ animation = &"off"
 script = ExtResource("2_jl2j8")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_d88d6")

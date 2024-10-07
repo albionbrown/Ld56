@@ -6,12 +6,12 @@
 size = Vector2(40, 40)
 
 [node name="AnimatedSprite2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_jgw06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bug"]]
 shape = SubResource("RectangleShape2D_u3tuk")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["bug"]]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -20,3 +20,4 @@ shape = SubResource("RectangleShape2D_u3tuk")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_gas_bubble_entered"]

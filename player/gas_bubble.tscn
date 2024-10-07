@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://datkkyunrdgay"]
+
+[ext_resource type="Script" path="res://player/gas_bubble.gd" id="1_exesk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8ws8"]
+
+[node name="GasBubble" type="RigidBody2D" groups=["gas_bubble"]]
+disable_mode = 1
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_exesk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y8ws8")
+
+[node name="ColorRect" type="ColorRect" parent="." groups=["gas_bubble"]]
+visible = false
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

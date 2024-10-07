@@ -27,25 +27,11 @@ func _process(delta):
 		look_at(target.global_position)
 		global_position = global_position.lerp(target.global_position, 0.01)
 		move_and_slide()
-
-	if (in_gas and in_gas.emitting):
-		health = health - 1
 	
-	if (health == 0 and !is_dead):
-		is_dead = true
+	if (is_dead):
 		var bug_counter = get_tree().get_first_node_in_group('bug_kill_counter')
 		bug_counter.increase()
 		queue_free()
-		
-
-func _on_area_2d_area_entered(area:Area2D):
-	if (area.get_parent().is_in_group('gas')):
-		in_gas = area.get_parent();
-
-
-func _on_area_2d_area_exited(area):
-	if (area.get_parent().is_in_group('gas')):
-		in_gas = false;
 
 
 func _on_detection_area_player_entered(body):
@@ -56,3 +42,15 @@ func _on_detection_area_player_entered(body):
 func _on_detection_area_player_exited(body):
 	if (body.is_in_group('player')):
 		noticed_player = false
+
+		
+func damage(damage):
+	health -= damage
+	if (health <= 0):
+		health = 0
+		is_dead = true
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if (body.is_in_group('gas_bubble')):
+		damage(body.damage)

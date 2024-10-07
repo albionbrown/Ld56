@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	hide()
-	if (player.is_reloading()):
+	if (player != null and player.is_reloading()):
 		show()
 		last_frame_time += delta
 		bar.value = 100 - ((last_frame_time / player.reload_time) * 100)

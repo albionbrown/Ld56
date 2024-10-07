@@ -32,6 +32,8 @@ animations = [{
 radius = 988.202
 
 [node name="AnimatedSprite2D" type="CharacterBody2D" groups=["bug"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_6h1m2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bug"]]
@@ -41,17 +43,20 @@ shape = SubResource("RectangleShape2D_u3tuk")
 sprite_frames = SubResource("SpriteFrames_i6o78")
 animation = &"flapping"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["bug"]]
-shape = SubResource("RectangleShape2D_u3tuk")
-
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_1skv7")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["bug"]]
+shape = SubResource("RectangleShape2D_u3tuk")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_player_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_player_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
