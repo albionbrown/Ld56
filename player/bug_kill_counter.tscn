@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqj10yxbgek8l"]
+
+[ext_resource type="Script" path="res://player/bug_kill_counter.gd" id="1_su5la"]
+
+[node name="BugKillCounter" type="CanvasLayer" groups=["bug_kill_counter"]]
+script = ExtResource("1_su5la")
+
+[node name="CountLabel" type="RichTextLabel" parent="."]
+offset_left = 999.0
+offset_top = 10.0
+offset_right = 1040.0
+offset_bottom = 33.0
+scale = Vector2(3.23684, 3.23684)
+text = "0"

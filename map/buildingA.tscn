@@ -1,7 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://0m0308ba6e42"]
+[gd_scene load_steps=15 format=3 uid="uid://0m0308ba6e42"]
 
 [ext_resource type="Texture2D" uid="uid://bqm2pnf5ja8b2" path="res://map/map.png" id="1_fyqtu"]
 [ext_resource type="Texture2D" uid="uid://wr28nxih4lm3" path="res://map/walls.png" id="2_3oev2"]
+[ext_resource type="PackedScene" uid="uid://gq003c0peuia" path="res://map/objects/sofa.tscn" id="3_wshue"]
+[ext_resource type="Texture2D" uid="uid://bx41kwfl7egyg" path="res://map/objects/sink.png" id="4_hdk45"]
+[ext_resource type="PackedScene" uid="uid://sxeg0pplnahn" path="res://map/objects/stove.tscn" id="5_0lguo"]
+[ext_resource type="PackedScene" uid="uid://3on8hnc4l1bx" path="res://map/objects/tv.tscn" id="6_r2hil"]
+[ext_resource type="PackedScene" uid="uid://bil07xhc0oexy" path="res://map/objects/chair.tscn" id="7_21wdt"]
+[ext_resource type="PackedScene" uid="uid://s5y56wod6rd1" path="res://map/objects/table.tscn" id="8_8g3e8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o68ma"]
 texture = ExtResource("1_fyqtu")
@@ -126,3 +132,41 @@ layer_0/tile_data = PackedInt32Array(0, 131072, 0, 196608, 131072, 0, 196611, 65
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(512, 0, -1, 0, 0, 1023, 1024, 1023, 1023, 0, 769, 0, 769, 63, 960, 63, 960, 960, 64, 960, 64, 64, 512, 64)
+
+[node name="Sofa" parent="." instance=ExtResource("3_wshue")]
+position = Vector2(163, 539)
+rotation = -1.5708
+
+[node name="Sink" type="Sprite2D" parent="."]
+position = Vector2(875, 837)
+rotation = 1.5708
+scale = Vector2(1.26674, 1.26674)
+texture = ExtResource("4_hdk45")
+
+[node name="Stove" parent="." instance=ExtResource("5_0lguo")]
+position = Vector2(876, 629)
+rotation = 1.5708
+scale = Vector2(1.26148, 1.26148)
+
+[node name="Tv" parent="." instance=ExtResource("6_r2hil")]
+position = Vector2(408, 549)
+rotation = 1.5708
+
+[node name="Chair" parent="." instance=ExtResource("7_21wdt")]
+position = Vector2(415, 194)
+rotation = 1.5708
+
+[node name="Chair2" parent="." instance=ExtResource("7_21wdt")]
+position = Vector2(531, 194)
+rotation = 1.5708
+
+[node name="Chair3" parent="." instance=ExtResource("7_21wdt")]
+position = Vector2(414, 331)
+rotation = -1.5708
+
+[node name="Chair4" parent="." instance=ExtResource("7_21wdt")]
+position = Vector2(531, 331)
+rotation = -1.5708
+
+[node name="Table" parent="." instance=ExtResource("8_8g3e8")]
+position = Vector2(472, 262)

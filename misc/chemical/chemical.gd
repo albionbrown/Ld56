@@ -24,6 +24,7 @@ func _on_area_2d_player_exited(body):
 
 func pickup():
 	hide()
+	label.hide()
 
 func use():
 	pass

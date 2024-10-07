@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://drog23s5otn1i"]
+
+[ext_resource type="Script" path="res://player/reload_counter.gd" id="1_1ull1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wh0o"]
+
+[node name="ReloadCounter" type="CanvasLayer"]
+script = ExtResource("1_1ull1")
+
+[node name="ReloadingLabel" type="RichTextLabel" parent="."]
+offset_left = 471.0
+offset_top = 15.0
+offset_right = 628.0
+offset_bottom = 38.0
+text = "R E L O A D I N G . . ."
+
+[node name="ProgressBar" type="ProgressBar" parent="ReloadingLabel"]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 160.0
+offset_bottom = 22.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_5wh0o")
+fill_mode = 1
+show_percentage = false

@@ -19,7 +19,6 @@ func _ready():
 	add_items_label.hide()
 	
 	play("off")
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,15 +28,12 @@ func _process(delta):
 		progress += progress_rate
 		
 	if (progress >= progress_total):
-		in_progress = false
-		progress = 0
-		play('off')
-		has_canister = false
-		has_chemicals = false
-		# output canister
+		finished()
+
 
 func add_canister(caniser):
 	has_canister = true
+	
 	
 func add_chemicals(chemicals):
 	has_chemicals = true
@@ -54,11 +50,9 @@ func use(inventory : Inventory):
 	if (!in_progress and !full()):
 		var items_to_remove = []
 		for item in inventory.get_items():
-			if (item.is_in_group('fumigation_item')):
+			if ((item.is_in_group('empty_canister') and !has_canister) or (item.is_in_group('chemicals') and !has_chemicals)):
 				item.move(self)
 				items_to_remove.append(item)
-#				# Consume the item
-				#item.queue_free()
 				
 		for item in items_to_remove:
 			inventory.remove_item(item)
@@ -90,3 +84,17 @@ func _on_area_2d_body_exited(body):
 		
 func full():
 	return has_canister and has_chemicals
+
+func finished():
+	in_progress = false
+	progress = 0
+	play('off')
+	has_canister = false
+	has_chemicals = false
+	var scene = load("res://misc/canister/full_canister.tscn")
+	var full_canister = scene.instantiate()
+	full_canister.set_name("full_canister")
+	var spawn_position = get_node('FullCanisterSpawnPosition')
+	full_canister.position = spawn_position.position
+	full_canister.title = "Full canister"
+	add_child(full_canister)

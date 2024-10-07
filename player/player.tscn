@@ -16,6 +16,7 @@ point_count = 2
 position = Vector2(12, 0)
 rotation = -0.0211463
 script = ExtResource("1_d7t0q")
+reload_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-11.9973, -0.253737)
@@ -41,5 +42,6 @@ hue_variation_curve = SubResource("Curve_2cgxq")
 position = Vector2(-11.9973, -0.253737)
 shape = SubResource("CircleShape2D_y341l")
 
+[connection signal="reload" from="." to="." method="_on_reload"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

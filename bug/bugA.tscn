@@ -32,7 +32,6 @@ animations = [{
 radius = 988.202
 
 [node name="AnimatedSprite2D" type="CharacterBody2D" groups=["bug"]]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_6h1m2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bug"]]

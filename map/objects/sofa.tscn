@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gq003c0peuia"]
+
+[ext_resource type="Texture2D" uid="uid://buo2s2x8yoon5" path="res://map/objects/sofa.png" id="1_4v37e"]
+
+[node name="Sofa" type="Sprite2D"]
+texture = ExtResource("1_4v37e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-135, -81, 135, -81, 145, -78, 154, -70, 158, -63, 160, -54, 160, 75, 156, 80, -155, 80, -160, 75, -160, -55, -159, -64, -153, -73, -144, -79)

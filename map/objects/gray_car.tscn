@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://3apf8riowpsj"]
+
+[ext_resource type="Texture2D" uid="uid://cskjass2vun27" path="res://map/objects/gray_car.png" id="1_bgl7a"]
+
+[node name="GrayCar" type="Sprite2D"]
+texture = ExtResource("1_bgl7a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-132, -55.5)
+polygon = PackedVector2Array(-116, -71.5, -125, -67.5, -135, -58.5, -142, -49.5, -148, -38.5, -153, -24.5, -156, 18.5, -155, 92.5, -153, 136.5, -148, 152.5, -139, 167.5, -125, 179.5, -117, 183.5, 196, 184.5, 200, 208.5, 205, 211.5, 213, 210.5, 218, 204.5, 222, 183.5, 365, 183.5, 374, 180.5, 385, 174.5, 395, 163.5, 404, 150.5, 412, 134.5, 418, 120.5, 420, 111.5, 420, -2.5, 415, -19.5, 405, -37.5, 395, -51.5, 386, -63.5, 374, -70.5, 363, -72.5, 222, -72.5, 214, -96.5, 207, -100.5, 200, -99.5, 198, -95.5, 198, -72.5)

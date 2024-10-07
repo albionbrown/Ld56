@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://sb8rr2qka7xm"]
+
+[ext_resource type="Texture2D" uid="uid://bx41kwfl7egyg" path="res://map/objects/sink.png" id="1_t4war"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de5nc"]
+size = Vector2(192, 128)
+
+[node name="Sink" type="Sprite2D"]
+texture = ExtResource("1_t4war")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_de5nc")

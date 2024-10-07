@@ -1,6 +1,7 @@
 class_name Backpack
 
 var gas : CPUParticles2D
+var max_total : int = 1000
 @export var total : int = 1000
 @export var valve : int = 1
 @export var canisters : Array

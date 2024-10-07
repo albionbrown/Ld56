@@ -1,5 +1,7 @@
 class_name Bug extends CharacterBody2D
 
+signal dead
+
 var target : Player
 var in_gas = false
 var is_dead = false
@@ -31,6 +33,8 @@ func _process(delta):
 	
 	if (health == 0 and !is_dead):
 		is_dead = true
+		var bug_counter = get_tree().get_first_node_in_group('bug_kill_counter')
+		bug_counter.increase()
 		queue_free()
 		
 

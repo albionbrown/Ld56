@@ -302,6 +302,9 @@ cache/0/40/0/kerning_overrides/35/0 = Vector2(0, 0)
 cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="FontFile_uolo8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -504,6 +507,9 @@ offset_bottom = -97.0
 theme_override_fonts/normal_font = SubResource("FontFile_uolo8")
 theme_override_font_sizes/normal_font_size = 34
 text = "Add items (E)"
+
+[node name="FullCanisterSpawnPosition" type="Node2D" parent="."]
+position = Vector2(211, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

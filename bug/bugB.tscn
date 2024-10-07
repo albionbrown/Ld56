@@ -32,7 +32,6 @@ animations = [{
 radius = 988.202
 
 [node name="AnimatedSprite2D" type="CharacterBody2D" groups=["bug"]]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_jdumk")
 health = 200
 
