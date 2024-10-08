@@ -8,6 +8,7 @@ size = Vector2(65, 66)
 
 [node name="chemical" type="Node2D" groups=["chemicals", "fumigation_item", "inventory_item"]]
 script = ExtResource("1_byefs")
+title = "Chemicals"
 
 [node name="Chemicals" type="Sprite2D" parent="."]
 scale = Vector2(0.443535, 0.443535)

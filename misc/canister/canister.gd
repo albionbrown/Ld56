@@ -2,7 +2,6 @@ class_name canister extends Node2D
 
 @export var title : String
 var label
-
 var emitter
 
 # Called when the node enters the scene tree for the first time.

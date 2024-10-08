@@ -35,7 +35,7 @@ size = Vector2(66, 66)
 
 [node name="canister" type="Node2D" groups=["canister", "empty_canister", "fumigation_item", "inventory_item"]]
 script = ExtResource("1_fipps")
-title = "Canister"
+title = "Empty canister"
 
 [node name="Canisters" type="AnimatedSprite2D" parent="."]
 position = Vector2(7.62939e-06, 1.90735e-06)

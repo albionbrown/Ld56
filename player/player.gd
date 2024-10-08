@@ -71,6 +71,7 @@ func pickup(item):
 	if (item.is_in_group('inventory_item')):
 		inventory.add_item(item)
 		item.pickup()
+		inventory.refresh_labels()
 		unset_usable() 
 
 func set_usable(l_usable):
